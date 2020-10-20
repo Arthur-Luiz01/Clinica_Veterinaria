@@ -1,8 +1,9 @@
-package Main;
+package main;
 
 import java.util.Scanner;
-import Classes.*;
-import Cadastro.CadastroCliente;
+import classes.*;
+import cadastro.CadastroCliente;
+import cadastro.CadastroVeterinario;
 
 public class Aplicacao {
 
@@ -10,8 +11,11 @@ public class Aplicacao {
 		Scanner in = new Scanner(System.in);
 		Pet pet;
 		Cliente cliente;
+		Veterinario vet = null;
 		CadastroCliente clientes = new CadastroCliente();
+		CadastroVeterinario veterinarios = new CadastroVeterinario();
 		Pet[] pets;
+		String nome = "", cpf = "";
 		int opção, qtd;
 		do {
 			opção = Menu();
@@ -24,7 +28,7 @@ public class Aplicacao {
 					System.out.println("Informe categoria");
 					String cat = in.next();
 					System.out.println("Nome do pet");
-					String nome = in.next();
+					nome = in.next();
 					System.out.println("Raça");
 					String raca = in.next();
 					System.out.println("Genero");
@@ -33,9 +37,9 @@ public class Aplicacao {
 					pets[i] = pet;
 				}
 				System.out.println("Informe CPF");
-				String cpf = in.next();
+				cpf = in.next();
 				System.out.println("Nome do cliente");
-				String nome = in.next();
+				nome = in.next();
 				cliente = new Cliente(cpf,nome,pets);
 				clientes.cadastrarCliente(cliente);
 				break;
@@ -45,24 +49,52 @@ public class Aplicacao {
 
 			case 3:
 				 System.out.println("Informe o cpf");
-				 String cp = in.next();
-				 clientes.remover(cp);
+				 cpf = in.next();
+				 clientes.remover(cpf);
 				break;
 
 			case 4: 
 				System.out.println("Deseja Alterar Nome ou Pet do cliente ?");
-				String cpff;
 				String opcao = in.next();
 				opcao.toLowerCase();
 				if (opcao.equals("nome")){
 					System.out.println("Informe o cpf");
-					cpff = in.next();
-					clientes.alterarNome(cpff);
+					cpf = in.next();
+					clientes.alterarNome(cpf);
 				} else {
 					System.out.println("Informe o cpf");
-					cpff = in.next();
+					cpf = in.next();
 				}
 				break;
+				case 5:
+					System.out.println("Informe CPF");
+					cpf = in.next();
+					System.out.println("Informe o nome");
+					nome = in.next();
+					vet = new Veterinario(cpf, nome);
+					veterinarios.cadastrarVet(vet);
+					break;
+				case 6:		
+					veterinarios.exibirTodos();	
+					break;
+				case 7: 
+					System.out.println("Informe o cpf");
+					cpf = in.next();
+					clientes.remover(cpf);
+				case 8:	
+					System.out.println("Informe o CPF do cliente");
+					cpf = in.next();
+					cliente = clientes.consultarCliente(cpf);
+					if (cliente != null) { 	
+					System.out.println("Informe o CPF do veterinario");
+					cpf = in.next();
+					veterinarios.consultarVeterinario(cpf, cliente);
+					}
+					break;
+				case 9:
+					System.out.println("Informe o CPF do veterinario");
+					cpf = in.next();
+					veterinarios.exibirClientes(cpf);
 				case 0:
 				System.out.println("Finalizando...");
 				break;
@@ -85,6 +117,12 @@ public class Aplicacao {
 		System.out.println(" 2 - Exibir Clientes ");
 		System.out.println(" 3 - Remover Cliente");
 		System.out.println(" 4 - Alterar dados do Cliente");
+		System.out.println("_________________________________");
+		System.out.println(" 5 - Cadastrar Veterinario");
+		System.out.println(" 6 - Exibir Veterinarios");
+		System.out.println(" 7 - Remover Veterinario");
+		System.out.println(" 8 - Cadastrar cliente a veterinario");
+		System.out.println(" 9 - Exibir clientes do veterinario");
 
 		opção = input.nextInt();
 		return opção;

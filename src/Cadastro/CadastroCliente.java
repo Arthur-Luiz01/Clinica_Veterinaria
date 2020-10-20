@@ -1,9 +1,7 @@
-package Cadastro;
+package cadastro;
 
 import java.util.*;
-import Classes.Cliente; 
-import java.util.ArrayList;
-
+import classes.Cliente; 
 public class CadastroCliente {
 	Scanner in = new Scanner(System.in);
 	ArrayList<Cliente> agenda = new ArrayList();
@@ -41,7 +39,14 @@ public class CadastroCliente {
 			}
 		}
 	}
-
+	public Cliente consultarCliente(String cpf){
+		for(Cliente c: agenda) {
+			if(c.getCpf().equals(cpf) == true){
+				return c;
+			}
+		}
+		return null;
+	}
 	@Override
 	public String toString () {
 		String aux = "";

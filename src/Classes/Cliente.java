@@ -1,4 +1,4 @@
-package Classes;
+package classes;
 public class Cliente implements Comparable<Cliente> {
 
 	// Atributos
@@ -7,7 +7,7 @@ public class Cliente implements Comparable<Cliente> {
 	private String cpf;
 	private Pet[] pet;
 
-	// Construtor 2
+	// Construtor 
 
 	public Cliente(String cpf, String nome, Pet[] pet){
 		this.cpf = cpf;
