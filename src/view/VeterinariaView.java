@@ -1,11 +1,11 @@
-package main;
+package view;
 
 import java.util.Scanner;
-import classes.*;
-import cadastro.CadastroCliente;
-import cadastro.CadastroVeterinario;
+import model.*;
+import controller.CadastroCliente;
+import controller.CadastroVeterinario;
 
-public class Aplicacao {
+public class VeterinariaView {
 
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);

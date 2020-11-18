@@ -1,4 +1,4 @@
-package classes;
+package model;
 import java.util.ArrayList;
 public class Veterinario implements Comparable<Veterinario> {
     private String cpf;

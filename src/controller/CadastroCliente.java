@@ -1,7 +1,8 @@
-package cadastro;
+package controller;
 
 import java.util.*;
-import classes.Cliente; 
+
+import model.Cliente; 
 public class CadastroCliente {
 	Scanner in = new Scanner(System.in);
 	ArrayList<Cliente> agenda = new ArrayList();

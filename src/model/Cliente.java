@@ -1,4 +1,4 @@
-package classes;
+package model;
 public class Cliente implements Comparable<Cliente> {
 
 	// Atributos

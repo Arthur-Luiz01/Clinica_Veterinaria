@@ -1,5 +1,4 @@
-package classes;
-import java.*;
+package model;
 public class Pet {
 
 	// Atributos

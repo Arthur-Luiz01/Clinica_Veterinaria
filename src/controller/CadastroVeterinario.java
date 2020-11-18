@@ -1,7 +1,8 @@
-package cadastro;
+package controller;
 import java.util.*;
-import classes.Veterinario;
-import classes.Cliente;
+
+import model.Cliente;
+import model.Veterinario;
 public class CadastroVeterinario {
     Scanner in = new Scanner(System.in);
     ArrayList<Veterinario> veterinarios = new ArrayList();
