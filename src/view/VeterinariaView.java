@@ -10,12 +10,14 @@ public class VeterinariaView {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		Pet pet;
+		AnimalSelvagem animalselvagem;
 		Cliente cliente;
 		Veterinario vet = null;
 		CadastroCliente clientes = new CadastroCliente();
 		CadastroVeterinario veterinarios = new CadastroVeterinario();
 		Pet[] pets;
-		String nome = "", cpf = "";
+		String nome = "", cpf = "", codigoo ="", especie = "";
+		AnimalSelvagem [] animalselvagemm;
 		int opção, qtd;
 		do {
 			opção = Menu();
@@ -24,7 +26,8 @@ public class VeterinariaView {
 				System.out.println("Quantos pets você possui ?");
 				qtd = in.nextInt();
 				pets = new Pet[qtd];
-				for (int i = 0; i < qtd; i++) {
+				int i;
+				for (i = 0; i < qtd; i++) {
 					System.out.println("Informe categoria");
 					String cat = in.next();
 					System.out.println("Nome do pet");
@@ -36,6 +39,17 @@ public class VeterinariaView {
 					pet = new Pet(cat,nome,raca,gen);
 					pets[i] = pet;
 				}
+				System.out.println("Possui Animal Selvagem? ");
+				System.out.println("Informe 'S' para sim e 'N' para não: ");
+				while(opção != 'N') {
+					System.out.println("Informe o código");
+					codigoo = in.nextLine();
+					System.out.println("Informe a Espécie:");
+					especie = in.nextLine();
+				}
+				animalselvagemm = new AnimalSelvagem[1];
+				animalselvagem = new AnimalSelvagem(codigoo,especie);
+				animalselvagemm[i] = animalselvagem;
 				System.out.println("Informe CPF");
 				cpf = in.next();
 				System.out.println("Nome do cliente");
