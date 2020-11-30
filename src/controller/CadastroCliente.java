@@ -1,59 +1,28 @@
 package controller;
-
-import java.util.*;
-
 import model.Cliente; 
 public class CadastroCliente {
-	Scanner in = new Scanner(System.in);
-	ArrayList<Cliente> agenda = new ArrayList();
+	GerenciaCadastro gc = new GerenciaCadastro();
 		
 	public void cadastrarCliente(Cliente cliente) {
-		agenda.add(cliente);
+		gc.cadastrarCliente(cliente);
 	}
 	public void exibirTodos() {
-		int n = agenda.size();
-		for (int i=0; i<n; i++) {
-		  System.out.println(agenda.get(i));
-		}
+		gc.exibirTodosCliente();
 	}
 	public void remover (String cpf) {
-		
-		for (Cliente c: agenda){
-			if(c.getCpf().equals(cpf) == true) {
-				agenda.remove(agenda.indexOf(c));
-			}
-		}
+		gc.removerCliente(cpf);
 	}
 	public void alterarNome (String cpf) {
-		for (Cliente c: agenda) {
-			if(c.getCpf().equals(cpf) == true){
-				System.out.println("Informe novo Nome");
-				String aux = in.next();
-				c.setNome(aux);
-			}
-		}
+		gc.alterarNome(cpf);
 	}
 	public void alterarPet (String cpf) {
-		for(Cliente c: agenda) {
-			if(c.getCpf().equals(cpf) == true){
-				
-			}
-		}
+		gc.alterarPet(cpf);
 	}
 	public Cliente consultarCliente(String cpf){
-		for(Cliente c: agenda) {
-			if(c.getCpf().equals(cpf) == true){
-				return c;
-			}
-		}
-		return null;
+		return gc.consultarCliente(cpf);	
 	}
 	@Override
 	public String toString () {
-		String aux = "";
-		for(Cliente c: agenda){
-			aux+= c.toString() + "\n";
-		}
-		return aux;
+		return gc.toStringCliente();
 	}
 }

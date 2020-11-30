@@ -4,46 +4,26 @@ import java.util.*;
 import model.Cliente;
 import model.Veterinario;
 public class CadastroVeterinario {
-    Scanner in = new Scanner(System.in);
+    GerenciaCadastro gc = new GerenciaCadastro();
     ArrayList<Veterinario> veterinarios = new ArrayList();
     
     public void cadastrarVet(Veterinario vet) {
-		veterinarios.add(vet);
+		gc.cadastrarVet(vet);
     }
     public void exibirTodos() {
-		int n = veterinarios.size();
-		for (int i=0; i<n; i++) {
-		  System.out.println(veterinarios.get(i));
-		}
+		gc.exibirTodosVet();
 	}
 	public void remover (String cpf) {
-		
-		for (Veterinario v: veterinarios){
-			if(v.getCpf().equals(cpf) == true) {
-				veterinarios.remove(veterinarios.indexOf(v));
-			}
-		}
+		gc.removerVet(cpf);
 	}
 	public void consultarVeterinario (String cpf, Cliente cliente) {
-		for (Veterinario v: veterinarios){
-			if(v.getCpf().equals(cpf) == true){
-				v.novoAtendimento(cliente);
-			}
-		}
+		gc.consultarVeterinario(cpf, cliente);
 	}
 	public void exibirClientes (String cpf) {
-		for (Veterinario v: veterinarios){
-			if(v.getCpf().equals(cpf) == true){
-				System.out.println(veterinarios.get(veterinarios.indexOf(v)));
-			}
-		}
+		gc.exibirClientes(cpf);
 	}
 	@Override
 	public String toString () {
-		String aux = "";
-		for(Veterinario v: veterinarios){
-			aux+= v.toString() + "\n";
-		}
-		return aux;
+		return gc.toStringVet();
 	}
 }
