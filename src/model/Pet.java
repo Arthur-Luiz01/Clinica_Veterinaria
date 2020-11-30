@@ -2,7 +2,7 @@ package model;
 public class Pet {
 
 	// Atributos
-
+	private TipoPet tipo;
 	private String categoria;
 	private String nome;
 	private String raca;
@@ -10,8 +10,9 @@ public class Pet {
 
 	// Construtor
 
-	public Pet (String categoria, String nome, String raca, char genero) {
+	public Pet (TipoPet tipo,String categoria, String nome, String raca, char genero) {
 
+		this.tipo = tipo;
 		this.categoria = categoria;
 		this.nome = nome;
 		this.raca = raca;
@@ -21,6 +22,12 @@ public class Pet {
 
 	// Get e Set
 
+	public TipoPet getTipo() {
+		return tipo;
+	}
+	public void setTipo(TipoPet tipo) {
+		this.tipo = tipo;
+	}
 	public String getCategoria() {
 		return categoria;
 	}

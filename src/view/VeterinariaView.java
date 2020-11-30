@@ -9,16 +9,17 @@ public class VeterinariaView {
 
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
+		String nome = "", cpf = "", codigoo ="", especie = "";
+		int opção, qtd;
 		Pet pet;
 		AnimalSelvagem animalselvagem;
 		Cliente cliente;
 		Veterinario vet = null;
+		TipoPet tipo;
+		Pet[] pets;
+		AnimalSelvagem [] animalselvagemm;
 		CadastroCliente clientes = new CadastroCliente();
 		CadastroVeterinario veterinarios = new CadastroVeterinario();
-		Pet[] pets;
-		String nome = "", cpf = "", codigoo ="", especie = "";
-		AnimalSelvagem [] animalselvagemm;
-		int opção, qtd;
 		do {
 			opção = Menu();
 			switch (opção) {
@@ -28,6 +29,9 @@ public class VeterinariaView {
 				pets = new Pet[qtd];
 				int i;
 				for (i = 0; i < qtd; i++) {
+					System.out.println("Tipo do PET");
+					String tipopet = in.next();
+					tipo = new TipoPet(tipopet);
 					System.out.println("Informe categoria");
 					String cat = in.next();
 					System.out.println("Nome do pet");
@@ -36,7 +40,7 @@ public class VeterinariaView {
 					String raca = in.next();
 					System.out.println("Genero");
 					char gen = in.next().charAt(0);
-					pet = new Pet(cat,nome,raca,gen);
+					pet = new Pet(tipo,cat,nome,raca,gen);
 					pets[i] = pet;
 				}
 				System.out.println("Possui Animal Selvagem? ");
