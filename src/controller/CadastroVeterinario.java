@@ -1,12 +1,23 @@
 package controller;
-import java.util.*;
-
 import model.Cliente;
 import model.Veterinario;
 public class CadastroVeterinario {
-    GerenciaCadastro gc = new GerenciaCadastro();
-    ArrayList<Veterinario> veterinarios = new ArrayList();
-    
+
+	GerenciaCadastro gc = new GerenciaCadastro();
+
+	public static CadastroVeterinario instance = new CadastroVeterinario();
+	public static synchronized CadastroVeterinario getInstance() {
+		if(instance != null) {
+			return instance;
+		} else {
+			instance = new CadastroVeterinario();
+			return instance;
+		}
+	}
+	private CadastroVeterinario () {
+		
+	}		
+	
     public void cadastrarVet(Veterinario vet) {
 		gc.cadastrarVet(vet);
     }

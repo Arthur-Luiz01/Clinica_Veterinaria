@@ -1,8 +1,21 @@
 package controller;
 import model.Cliente; 
 public class CadastroCliente {
+	
 	GerenciaCadastro gc = new GerenciaCadastro();
-		
+	
+	public static CadastroCliente instance = new CadastroCliente();
+	public static synchronized CadastroCliente getInstance() {
+		if(instance != null) {
+			return instance;
+		} else {
+			instance = new CadastroCliente();
+			return instance;
+		}
+	}
+	private CadastroCliente () {
+
+	}		
 	public void cadastrarCliente(Cliente cliente) {
 		gc.cadastrarCliente(cliente);
 	}

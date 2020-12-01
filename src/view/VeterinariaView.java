@@ -18,8 +18,8 @@ public class VeterinariaView {
 		TipoPet tipo;
 		Pet[] pets;
 		AnimalSelvagem [] animalselvagemm;
-		CadastroCliente clientes = new CadastroCliente();
-		CadastroVeterinario veterinarios = new CadastroVeterinario();
+		CadastroCliente clientes = CadastroCliente.getInstance();
+		CadastroVeterinario veterinarios = CadastroVeterinario.getInstance();
 		do {
 			opção = Menu();
 			switch (opção) {
