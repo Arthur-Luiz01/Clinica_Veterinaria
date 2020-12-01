@@ -2,7 +2,7 @@ package controller;
 import model.Cliente; 
 public class CadastroCliente {
 	
-	GerenciaCadastro gc = new GerenciaCadastro();
+	GerenciaCliente gc = new GerenciaCliente();
 	
 	public static CadastroCliente instance = new CadastroCliente();
 	public static synchronized CadastroCliente getInstance() {

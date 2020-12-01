@@ -3,7 +3,7 @@ import model.Cliente;
 import model.Veterinario;
 public class CadastroVeterinario {
 
-	GerenciaCadastro gc = new GerenciaCadastro();
+	GerenciaVeterinario gv = new GerenciaVeterinario();
 
 	public static CadastroVeterinario instance = new CadastroVeterinario();
 	public static synchronized CadastroVeterinario getInstance() {
@@ -19,22 +19,22 @@ public class CadastroVeterinario {
 	}		
 	
     public void cadastrarVet(Veterinario vet) {
-		gc.cadastrarVet(vet);
+		gv.cadastrarVet(vet);
     }
     public void exibirTodos() {
-		gc.exibirTodosVet();
+		gv.exibirTodosVet();
 	}
 	public void remover (String cpf) {
-		gc.removerVet(cpf);
+		gv.removerVet(cpf);
 	}
 	public void consultarVeterinario (String cpf, Cliente cliente) {
-		gc.consultarVeterinario(cpf, cliente);
+		gv.consultarVeterinario(cpf, cliente);
 	}
 	public void exibirClientes (String cpf) {
-		gc.exibirClientes(cpf);
+		gv.exibirClientes(cpf);
 	}
 	@Override
 	public String toString () {
-		return gc.toStringVet();
+		return gv.toStringVet();
 	}
 }
