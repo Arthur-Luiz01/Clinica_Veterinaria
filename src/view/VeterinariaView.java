@@ -2,6 +2,7 @@ package view;
 
 import java.util.Scanner;
 import model.*;
+import memento.*;
 import controller.CadastroCliente;
 import controller.CadastroVeterinario;
 
@@ -20,6 +21,10 @@ public class VeterinariaView {
 		AnimalSelvagem [] animalselvagemm;
 		CadastroCliente clientes = CadastroCliente.getInstance();
 		CadastroVeterinario veterinarios = CadastroVeterinario.getInstance();
+		/////////////////////////////////////////////
+		Originator originator = new Originator();
+		CareTaker careTaker = new CareTaker();
+		///////////////////////////////////////////
 		do {
 			opção = Menu();
 			switch (opção) {
@@ -60,6 +65,10 @@ public class VeterinariaView {
 				nome = in.next();
 				cliente = new Cliente(cpf,nome,pets);
 				clientes.cadastrarCliente(cliente);
+				////////////////////////////////////////
+				originator.setEstado(cliente);
+				careTaker.add(originator.salvarEstadoMemento());
+				////////////////////////////////////////
 				break;
 			case 2: 
 				clientes.exibirTodos();
